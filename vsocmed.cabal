@@ -32,11 +32,14 @@ library
       Commands.Version
       DB.Connect
       DB.Opers
+      GoDaddy.Support
       MainLogic
       Options
       Options.Cli
       Options.ConfFile
       Options.Runtime
+      SiteDefinition.Logic
+      SiteDefinition.Types
   other-modules:
       Paths_vsocmed
   hs-source-dirs:
@@ -50,6 +53,7 @@ library
       aeson
     , base >=4.7 && <5
     , bytestring
+    , containers
     , directory
     , filepath
     , gitrev
@@ -57,6 +61,8 @@ library
     , http-client-tls
     , http-types
     , mtl
+    , openai-hs
+    , openai-servant
     , optparse-applicative
     , text
     , time
@@ -79,6 +85,7 @@ executable vsocmed
       aeson
     , base >=4.7 && <5
     , bytestring
+    , containers
     , directory
     , filepath
     , gitrev
@@ -86,6 +93,8 @@ executable vsocmed
     , http-client-tls
     , http-types
     , mtl
+    , openai-hs
+    , openai-servant
     , optparse-applicative
     , text
     , time
@@ -110,6 +119,7 @@ test-suite vsocmed-test
       aeson
     , base >=4.7 && <5
     , bytestring
+    , containers
     , directory
     , filepath
     , gitrev
@@ -117,6 +127,8 @@ test-suite vsocmed-test
     , http-client-tls
     , http-types
     , mtl
+    , openai-hs
+    , openai-servant
     , optparse-applicative
     , text
     , time

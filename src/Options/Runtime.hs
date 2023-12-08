@@ -1,12 +1,27 @@
-module Options.Runtime (defaultRun, RunOptions (..)) where
--- import Data.Int (Int)
+module Options.Runtime (defaultRun
+    , RunOptions (..), GoDadAuth (..), OpenAiAuth (..)
+  ) where
 
 import Data.Text (Text)
 
 data RunOptions = RunOptions {
     debug :: Int
-    -- HERE: Add additional vars for providing runtime parameters:
-    -- Eg: , root :: Text
+    , goDaddy :: Maybe GoDadAuth
+    , rootDir :: String
+    , openAI :: Maybe OpenAiAuth
+  }
+  deriving (Show)
+
+
+data GoDadAuth = GoDadAuth {
+    ident :: String
+    , secret :: String
+    , customerID :: String
+  }
+  deriving (Show)
+
+data OpenAiAuth = OpenAiAuth {
+    key :: Text
   }
   deriving (Show)
 
@@ -14,4 +29,7 @@ defaultRun :: RunOptions
 defaultRun =
   RunOptions {
     debug = 0
+    , goDaddy = Nothing
+    , rootDir = "/tmp"
+    , openAI = Nothing
   }

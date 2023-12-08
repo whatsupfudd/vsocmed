@@ -19,12 +19,23 @@ import qualified Data.Yaml as Yaml
 
 data FileOptions = FileOptions {
   debug :: Maybe Int
-  , primaryLocale :: Maybe String
-  -- HERE: add new parameters received from the config file:
-  -- Et: , rootDir :: Maybe String
+  , goDaddy :: Maybe GoDaddy
+  , rootDir :: Maybe FilePath
+  , openAI :: Maybe OpenAI
  }
  deriving stock (Show, Generic)
 
+data GoDaddy = GoDaddy {
+  ident :: Maybe String
+  , secret :: Maybe String
+  , customer :: Maybe String
+ }
+ deriving stock (Show, Generic)
+
+data OpenAI = OpenAI {
+    key :: Maybe String
+  }
+ deriving stock (Show, Generic)
 
 defaultConfName :: FilePath
 defaultConfName = ".fudd/vsocmed/config.yaml"
@@ -40,6 +51,8 @@ defaultConfigFilePath = do
 
 -- YAML support:
 instance Aes.FromJSON FileOptions
+instance Aes.FromJSON GoDaddy
+instance Aes.FromJSON OpenAI
 
 parseFileOptions :: FilePath -> IO (Either String FileOptions)
 parseFileOptions filePath =
@@ -51,6 +64,7 @@ parseFileOptions filePath =
       case eiRez of
         Left err -> pure . Left $ "@[parseYaml] err: " <> show err
         Right aContent ->
+          -- putStrLn $ "@[parseFileOptions] got options: " <> show aContent
           {- HERE: add new parameters processing:
           Eg:
           case aContent.rootDir of

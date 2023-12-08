@@ -27,6 +27,10 @@ dependencies:
   - text
   - time
   - vector
+  - containers
+  - openai-hs
+  - openai-servant
+  - vector
   # For YAML (config file):
   - yaml
   - directory

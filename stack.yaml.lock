@@ -3,7 +3,21 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: openai-hs-0.3.0.1@sha256:a65f582b47f2538420814e8cef46053ee2a20b61fae9f12bc90ff7798f1f6f2c,2633
+    pantry-tree:
+      sha256: 9a7efebfbe59700fa9a6b99d9634b20c14c6a00ecbb922d1f171d7d3c40673df
+      size: 507
+  original:
+    hackage: openai-hs-0.3.0.1
+- completed:
+    hackage: openai-servant-0.3.0.1@sha256:9761e7081e1ace645428fb5bf49389caa591459dbb8ccb543a8ed1b7620b6ac8,1605
+    pantry-tree:
+      sha256: 2f06f7f65d6bfc2daca0ba515e0fa4181ea2c5a43d9b948b838604136693d9b0
+      size: 397
+  original:
+    hackage: openai-servant-0.3.0.1
 snapshots:
 - completed:
     sha256: adbc602422dde10cc330175da7de8609e70afc41449a7e2d6e8b1827aa0e5008

@@ -127,6 +127,7 @@ initOpts =
         <> help "File containing the concept for the new website."
       )
 
+
 fetchOpts :: Parser Command
 fetchOpts =
   FetchCmd <$> strOption (
